@@ -1,0 +1,217 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+:root {
+  --columns-card: 0;
+  --rows-card: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas: "nav main";
+  grid-template-columns: 20vw 78.7vw;
+}
+
+#pageNav {
+  grid-area: nav;
+}
+
+#pageMain {
+  grid-area: main;
+}
+
+.nav {
+  background-color: rgb(6, 61, 63);
+  color: rgb(156, 250, 242);
+  font-weight: 700;
+}
+
+.nav__div {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  padding: 0.7rem 1.8rem;
+  box-shadow: 0.4vw 0.5vw 1vw rgb(47, 134, 118);
+  margin: 1.5vh 1vw 2.6vh 1vw;
+  border-radius: 0.5vw;
+  border: 0.15rem solid;
+  border-color: rgb(6, 61, 63);
+  background-color: rgb(22, 169, 174);
+}
+.nav__div .nav-filter {
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 0.6;
+}
+.nav__div p label {
+  margin: 0 0.25vw 0 0.25vw;
+}
+.nav__div .radio:hover, .nav__div p label:hover {
+  color: rgb(5, 34, 23);
+}
+.nav__div #input-name,
+.nav__div #check-totalFriend,
+.nav__div #check-minAge,
+.nav__div #check-maxAge {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 0.25vw;
+  padding-left: 0.3rem;
+}
+.nav__div #check-totalFriend, .nav__div #check-minAge, .nav__div #check-maxAge {
+  width: 45%;
+}
+.nav__div .nav-caption {
+  color: rgb(6, 61, 63);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.main {
+  background-color: rgb(243, 221, 161);
+}
+
+.main__div {
+  display: grid;
+  grid-template-columns: repeat(var(--columns-card), 1fr);
+  grid-template-rows: repeat(var(--rows-card), 1fr);
+}
+.main__div .div__card {
+  display: flex;
+  background-color: rgb(234, 202, 135);
+  border: 0.3rem solid;
+  border-color: rgb(6, 61, 63);
+  border-radius: 0.9rem;
+  box-shadow: 0.4vw 0.5vw 1vw rgb(6, 61, 63);
+  margin: 1.2vh 0.6vw;
+}
+.main__div .div__card .card-image {
+  float: left;
+  padding: 1.5vh 0.8vw;
+}
+.main__div .div__card .card-image .card-photo {
+  width: 10rem;
+  height: 10rem;
+}
+.main__div .div__card .card-text {
+  padding: 1.5vh 0.1vw;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.main__div .div__card:hover {
+  background-color: rgb(244, 227, 190);
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 40%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  html {
+    font-size: 45%;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  html {
+    font-size: 54%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  html {
+    font-size: 64%;
+  }
+}
+@media (min-width: 1200px) {
+  html {
+    font-size: 70%;
+  }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="pageNav" class="nav">
+            <div class="nav__div nav__local">
+                <label for="input-name" class="nav-caption">Search name</label>
+                <p> <input type="text" size="4" autofocus value="" id="input-name" class="nav-filter"> </p>
+            </div>
+            <div class="nav__div nav__server">
+                <p class="nav-caption">Filter friends</p>
+                <p>
+                    <input type="number" min="1" max="100" step="1" value="12" id="check-totalFriend"
+                        class="nav-filter">
+                    <label for="check-totalFriend">friends</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="check-male" class="nav-filter">
+                    <label for="check-male">male</label>
+                    <input type="checkbox" id="check-female" class="nav-filter">
+                    <label for="check-female">female</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="check-UA" class="nav-filter">
+                    <label for="check-UA">UA</label>
+                    <input type="checkbox" id="check-ES" class="nav-filter">
+                    <label for="check-ES">ES</label>
+                    <input type="checkbox" id="check-GB" class="nav-filter">
+                    <label for="check-GB">GB</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="check-NO" class="nav-filter">
+                    <label for="check-NO">NO</label>
+                    <input type="checkbox" id="check-CA" class="nav-filter">
+                    <label for="check-CA">CA</label>
+                    <input type="checkbox" id="check-US" class="nav-filter">
+                    <label for="check-US">US</label>
+                </p>
+            </div>
+            <div class="nav__div nav__local">
+                <p class="nav-caption">Sort card</p>
+                <div class="control">
+                    <label class="radio">
+                        <p><input type="radio" name="answer" id="check-sort-noSort" class="nav-filter" checked> no sort
+                        </p>
+                    </label>
+                    <label class="radio">
+                        <p><input type="radio" name="answer" id="check-sort-nameABC" class="nav-filter"> A-Z</p>
+                    </label>
+                    <label class="radio">
+                        <p><input type="radio" name="answer" id="check-sort-nameZYX" class="nav-filter"> Z-A</p>
+                    </label>
+                    <label class="radio">
+                        <p><input type="radio" name="answer" id="check-sort-dobMinMax" class="nav-filter"> 99-1</p>
+                    </label>
+                    <label class="radio">
+                        <p><input type="radio" name="answer" id="check-sort-dobMaxMin" class="nav-filter"> 1-99</p>
+                    </label>
+                </div>
+            </div>
+            <div class="nav__div nav__local">
+                <p class="nav-caption">Filter info card</p>
+                <p>
+                    <input type="checkbox" id="check-location" class="nav-filter">
+                    <label for="check-location">location</label>
+                    <input type="checkbox" id="check-cell" class="nav-filter">
+                    <label for="check-cell">cell</label>
+
+                </p>
+                <p>
+                    <input type="checkbox" id="check-phone" class="nav-filter">
+                    <label for="check-phone">phone</label>
+                    <input type="checkbox" id="check-email" class="nav-filter">
+                    <label for="check-email">e-mail</label>
+                </p>
+                <p>
+                    from &nbsp
+                    <input type="number" min="1" step="1" value="25" id="check-minAge" class="nav-filter">
+                    <label for="check-minAge">yo</label>
+                </p>
+                <p>                    
+                    to &nbsp
+                    <input type="number" min="1" step="1" value="50" id="check-maxAge" class="nav-filter">
+                    <label for="check-maxAge">yo</label>
+                </p>
+            </div>
+        </nav>
+
+        <main id="pageMain" class="main">
+            <div class="main__div">
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
