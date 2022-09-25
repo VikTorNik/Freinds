@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let dateFriendsServer = {};
 
-    
-    //* Фільтрація того, що завантуємо з сервера
     function filterBeforeServer() {
         initFriends.randomuser.results = document.querySelector('#check-totalFriend').value;
 
@@ -68,14 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
         initFriends.randomuser.nat = buttonNation;
     }
 
-    //* Зчитуємо дані з сервера за рядком вибору
     async function readDateServer() {
         const response = await fetch(initFriends.randomuser.fullUrl);
         response.ok ? dateFriendsServer = await response.json()
             : alert("Error HTTP: " + response.status);
     };
 
-    //* Оновлюємо мінімальний і максимальний вік
     function updateForm() {
         initFriends.filter.age.min = Math.min(...dateFriendsServer.results.map(friends => friends.dob.age));
         initFriends.filter.age.max = Math.max(...dateFriendsServer.results.map(friends => friends.dob.age));
@@ -89,21 +85,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('#check-maxAge').value = initFriends.filter.age.max;
     }
 
-    //* Зчитуємо вибір користувача
     function readСhoiceForFiltre() {
-        // рядок пошуку прізвища
         initFriends.filter.searchName = document.querySelector('#input-name').value;
-        // напрямок сортування
+
         document.querySelector('#check-sort-nameABC').checked ? initFriends.sortCard.nameABC = true : initFriends.sortCard.nameABC = false;
         document.querySelector('#check-sort-nameZYX').checked ? initFriends.sortCard.nameZYX = true : initFriends.sortCard.nameZYX = false;
         document.querySelector('#check-sort-dobMinMax').checked ? initFriends.sortCard.dobMinMax = true : initFriends.sortCard.dobMinMax = false;
-        document.querySelector('#check-sort-dobMaxMin').checked ? initFriends.sortCard.dobMaxMin = true : initFriends.sortCard.dobMaxMin = false;        
-        // кількість відображаємих даних на картці        
+        document.querySelector('#check-sort-dobMaxMin').checked ? initFriends.sortCard.dobMaxMin = true : initFriends.sortCard.dobMaxMin = false;
+
         document.querySelector('#check-location').checked ? initFriends.showCardInfo.location = true : initFriends.showCardInfo.location = false;
         document.querySelector('#check-email').checked ? initFriends.showCardInfo.email = true : initFriends.showCardInfo.email = false;
         document.querySelector('#check-phone').checked ? initFriends.showCardInfo.phone = true : initFriends.showCardInfo.phone = false;
         document.querySelector('#check-cell').checked ? initFriends.showCardInfo.cell = true : initFriends.showCardInfo.cell = false;
-        // забезпечення коректного вибору мінімального і максимального віку
+
         initFriends.filter.age.currentMin = document.querySelector('#check-minAge').value;
         initFriends.filter.age.currentMax = document.querySelector('#check-maxAge').value;
         document.querySelector("#check-minAge").
@@ -120,9 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         initFriends.filter.age.currentMax = document.querySelector('#check-maxAge').value;
     }
 
-    //* Формуємо новий об'єкт з тими даними що потрібно відобразити
     function createDateForVisible(dbFriends) {
-        // сформували масив об'єктів другів 
         let dbScreen = [];
         dbScreen.length = 0;
         [...dbFriends.results].map(elem => {
@@ -145,19 +137,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return dbScreen;
     }
 
-    //* Фільтація по імені
     function filtrationName(dbFriends) {
         return [...dbFriends].filter(elem =>
             elem.name.indexOf(initFriends.filter.searchName) !== -1)
     }
 
-    //* Фільтація по віку
     function filtrationAge(dbFriends) {
         return [...dbFriends].filter(elem => ((initFriends.filter.age.currentMin <= elem.dobAge)
             && (initFriends.filter.age.currentMax >= elem.dobAge)))
     }
 
-    //* Фільтація - відображення локації
     function filtrationFieldLocation(dbFriends) {
         return initFriends.showCardInfo.location ? [...dbFriends]
             : [...dbFriends].reduce((filteredArray, friend) => {
@@ -168,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, []);
     }
 
-    //* Фільтація - відображення електронної адреси
     function filtrationFieldEmail(dbFriends) {
         return initFriends.showCardInfo.email ? [...dbFriends]
             : [...dbFriends].reduce((filteredArray, friend) => {
@@ -178,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, []);
     }
 
-    //* Фільтація - відображення телефона
     function filtrationFieldPhone(dbFriends) {
         return initFriends.showCardInfo.phone ? [...dbFriends]
             : [...dbFriends].reduce((filteredArray, friend) => {
@@ -188,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, []);
     }
 
-    //* Фільтація - відображення мобільного
     function filtrationFieldCell(dbFriends) {
         return initFriends.showCardInfo.cell ? [...dbFriends]
             : [...dbFriends].reduce((filteredArray, friend) => {
@@ -198,61 +184,51 @@ document.addEventListener("DOMContentLoaded", () => {
             }, []);
     }
 
-    //* Сортування ABC
     function sortNameABC(dbFriends) {
         return initFriends.sortCard.nameABC ?
             [...dbFriends].sort((a, b) => a.nameForSort > b.nameForSort ? 1 : -1)
             : [...dbFriends];
     }
 
-    //* Сортування ZYX
     function sortNameZYX(dbFriends) {
         return initFriends.sortCard.nameZYX ?
             [...dbFriends].sort((a, b) => a.nameForSort < b.nameForSort ? 1 : -1)
             : [...dbFriends];
     }
 
-    //* Сортування вік Min --> Max
     function sortDobMinMax(dbFriends) {
         return initFriends.sortCard.dobMinMax ?
             [...dbFriends].sort((a, b) => a.dobDateForSort.getTime() > b.dobDateForSort.getTime() ? 1 : -1)
             : [...dbFriends];
     }
 
-    //* Сортування вік Max --> Min
     function sortDobMaxMin(dbFriends) {
         return initFriends.sortCard.dobMaxMin ?
             [...dbFriends].sort((a, b) => a.dobDateForSort.getTime() < b.dobDateForSort.getTime() ? 1 : -1)
             : [...dbFriends];
     }
 
-    //* Формуємо сітку у CSS під зображення
     function createMarkupCSS() {
-        initFriends.gridFriends.columns = Math.floor(document.querySelector(".main").clientWidth / initFriends.profileCard.width)-2;
+        initFriends.gridFriends.columns = Math.floor(document.querySelector(".main").clientWidth / initFriends.profileCard.width) - 2;
         initFriends.gridFriends.columns < 1 ? initFriends.gridFriends.columns = 1 : false;
         initFriends.gridFriends.rows = Math.floor(document.querySelector(".main").clientHeight / initFriends.profileCard.height);
         initFriends.gridFriends.rows < 1 ? initFriends.gridFriends.rows = 1 : false;
-        // вираховуємо кількість рядків/колонок                
         document.documentElement.style.setProperty('--columns-card', initFriends.gridFriends.columns);
         document.documentElement.style.setProperty('--rows-card', initFriends.gridFriends.rows);
     }
 
-    //* Формування DOM
     function createDOM(dbFriends) {
-        // новий масив і видаляємо зайві поля        
         let dbVisible = [...dbFriends].reduce((filteredArray, friend) => {
             delete friend.nameForSort;
             delete friend.dobDateForSort;
             filteredArray.push(friend);
             return filteredArray;
-        }, []);
-        // формуємо ДОМ
+        }, []);        
         let parentDiv = document.createElement("div");
         parentDiv.className = "main__div";
         document.querySelector(".main__div").replaceWith(parentDiv);
         let fieldPlay = [];
-
-        // отримуєм масив ключів від карток
+        
         dbVisible.map(card => {
             fieldPlay.push(`<div class="div__card">
             <div class="card-image">                
@@ -270,37 +246,26 @@ document.addEventListener("DOMContentLoaded", () => {
             card.propertyIsEnumerable('email') ? fieldPlay.push(`<p>${card.email}</p>`) : false;
             fieldPlay.push(`</div></div>`);
             parentDiv.innerHTML = fieldPlay.join('');
-        })        
-        console.log("**********"); 
-        console.log("майн ширина - ", document.querySelector(".main").clientWidth);
-        console.log("майн высота - ", document.querySelector(".main").clientHeight); 
-        console.log("блок ширина - ", document.querySelector(".div__card").clientWidth);
-        console.log("блок высота - ", document.querySelector(".div__card").clientHeight);
-        console.log("количество колонок - ", initFriends.gridFriends.columns);
-        console.log("количество строчек - ", initFriends.gridFriends.rows);
-        return dbVisible;        
+        })
+        return dbVisible;
     }
-  
-
-    //* Повторне завантаження з сервера
+    
     ["click", "input"].forEach(event => {
         [...document.querySelectorAll(".nav__server")].map(elem => {
             elem.addEventListener(event, async () => {
-                await filterBeforeServer(); // фільтрація вибору користовача
-                await readDateServer(); // Зчитуємо дані з сервера 
-                await updateForm(); // оновлюємо вік            
+                await filterBeforeServer();
+                await readDateServer();
+                await updateForm();
                 document.querySelector(".nav__local").click();
             });
         })
     });
-
-    //* Робота з локальним об'єктом
+    
     ["click", "input"].forEach(event => {
         [...document.querySelectorAll(".nav__local")].map(elem => {
-            elem.addEventListener(event, async () => {
-                // передаємо дані для формування сітки                                    
-                await readСhoiceForFiltre(); // фіксуємо дані для майбутньої фільтрації відображення
-                createMarkupCSS(); // ініціалізація сітки для відображення                            
+            elem.addEventListener(event, async () => {                
+                await readСhoiceForFiltre();
+                createMarkupCSS();
                 createDOM(
                     sortDobMaxMin(
                         sortDobMinMax(
@@ -312,12 +277,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 filtrationFieldLocation(
                                                     filtrationAge(
                                                         filtrationName(
-                                                            createDateForVisible(dateFriendsServer))))))))))));                
+                                                            createDateForVisible(dateFriendsServer))))))))))));
             });
         });
     });
-
-    //* Імітація першого натискання для считування з сервера
+    
     document.querySelector(".nav__server").click();
 
     window.onresize = createMarkupCSS;

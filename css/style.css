@@ -109,9 +109,10 @@ body {
 }
 
 .nav {
-  background-color: rgb(6, 61, 63);
-  color: rgb(156, 250, 242);
+  background-color: rgb(0, 121, 125);
+  color: rgb(145, 240, 230);
   font-weight: 700;
+  padding-top: 7px;
 }
 
 .nav__div {
@@ -119,12 +120,9 @@ body {
   font-size: 1.5rem;
   line-height: 3.4rem;
   padding: 0.7rem 1.8rem;
-  box-shadow: 0.4vw 0.5vw 1vw rgb(47, 134, 118);
-  margin: 1.5vh 1vw 2.6vh 1vw;
+  margin: 1.5vh 1.1vw 2.2vh 1.1vw;
   border-radius: 0.5vw;
-  border: 0.15rem solid;
-  border-color: rgb(6, 61, 63);
-  background-color: rgb(22, 169, 174);
+  background-color: rgba(255, 255, 255, 0.35);
 }
 .nav__div .more-collumn {
   display: flex;
@@ -168,28 +166,34 @@ body {
   display: grid;
   grid-template-columns: repeat(var(--columns-card), 1fr);
   grid-template-rows: repeat(var(--rows-card), 1fr);
+  padding: 10px;
 }
 .main__div .div__card {
   display: flex;
-  background-color: rgb(234, 202, 135);
-  border: 0.3rem solid;
+  background-color: rgba(255, 255, 255, 0.5);
   border-color: rgb(6, 61, 63);
   border-radius: 0.9rem;
-  box-shadow: 0.4vw 0.5vw 1vw rgb(6, 61, 63);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   margin: 1.2vh 0.6vw;
 }
 .main__div .div__card .card-image {
   float: left;
-  padding: 1.5vh 0.8vw;
+  padding: 13px;
 }
 .main__div .div__card .card-image .card-photo {
-  width: 10rem;
-  height: 10rem;
+  border-radius: 6px;
 }
 .main__div .div__card .card-text {
   padding: 1.5vh 0.1vw;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
+}
+.main__div .div__card .card-text p:first-child {
+  font-size: 2.5rem;
+  opacity: 1;
+}
+.main__div .div__card .card-text p {
+  opacity: 0.5;
 }
 .main__div .div__card:hover {
   background-color: rgb(244, 227, 190);
