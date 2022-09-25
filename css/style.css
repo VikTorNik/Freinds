@@ -182,6 +182,8 @@ body {
 }
 .main__div .div__card .card-image .card-photo {
   border-radius: 6px;
+  width: 10rem;
+  height: 10rem;
 }
 .main__div .div__card .card-text {
   padding: 1.5vh 0.1vw;
