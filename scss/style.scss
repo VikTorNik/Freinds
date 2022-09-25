@@ -35,10 +35,10 @@ body {
 .nav {
     background-color: $color-fon;
     color: rgb(156, 250, 242);
-    font-weight: 700;
+    font-weight: 700;    
 }
 
-.nav__div {
+.nav__div {    
     display: block;
     font-size: 1.5rem;
     line-height: 3.6rem;
@@ -48,13 +48,13 @@ body {
     border-radius: .5vw;
     border: .15rem solid;
     border-color: $color-dark;
-    background-color: rgb(22, 169, 174);
+    background-color: rgb(22, 169, 174);    
 
     .more-collumn {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 100%;
+        width: 100%;        
     }
 
     .nav-filter {
@@ -130,106 +130,78 @@ body {
     }
 }
 
-@media only screen and (min-width: 2000px) {
-
-    /* for sumo sized (mac) screens */
+@media (max-width: 480px) {
     html {
-        font-size: 80%;
+        font-size: 44%;
     }
 
-    $menu-width: 13vw;
-    $main-width: 100vw - $menu-width - 1vw;
+    $menu-width: 30vw;
+    $main-width: 100vw - $menu-width - 3.1vw;
 
     .wrapper {
         grid-template-columns: $menu-width $main-width;
     }
 }
 
-@media only screen and (min-width: 1440px) {
-
-    /* styles for browsers larger than 1440px; */
-    html {
-        font-size: 70%;
-    }
-
-    $menu-width: 15vw;
-    $main-width: 100vw - $menu-width - 1vw;
-
-    .wrapper {
-        grid-template-columns: $menu-width $main-width;
-    }
-}
-
-@media only screen and (min-width: 960px) {
-
-    /* styles for browsers larger than 960px; */
-    html {
-        font-size: 60%;
-    }
-
-    $menu-width: 18vw;
-    $main-width: 100vw - $menu-width - 1.1vw;
-
-    .wrapper {
-        grid-template-columns: $menu-width $main-width;
-    }
-}
-
-@media only screen and (device-width: 768px) {
-
-    /* default iPad screens */
+@media (min-width: 481px) and (max-width: 768px) {
     html {
         font-size: 50%;
     }
 
-    $menu-width: 24vw;
-    $main-width: 100vw - $menu-width - 1.8vw;
+    $menu-width: 31vw;
+    $main-width: 100vw - $menu-width - 2.5vw;
 
     .wrapper {
         grid-template-columns: $menu-width $main-width;
     }
 }
 
-@media only screen and (max-device-width: 480px) {
-
-    /* styles for mobile browsers smaller than 480px; (iPhone) */
+@media (min-width: 769px) and (max-width: 992px) {
     html {
-        font-size: 40%;
+        font-size: 52%;
     }
 
-    $menu-width: 36vw;
-    $main-width: 100vw - $menu-width - 3.4vw;
+    $menu-width: 24vw;
+    $main-width: 100vw - $menu-width - 1.9vw;
 
     .wrapper {
         grid-template-columns: $menu-width $main-width;
     }
 }
 
-/* different techniques for iPad screening */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-
-    /* For portrait layouts only */
+@media (min-width: 993px) and (max-width: 1200px) {
     html {
-        font-size: 45%;
+        font-size: 58%;
     }
 
-    $menu-width: 24vw;
-    $main-width: 100vw - $menu-width - 3.4vw;
+    $menu-width: 20vw;
+    $main-width: 100vw - $menu-width - 1.3vw;
 
     .wrapper {
         grid-template-columns: $menu-width $main-width;
     }
 }
 
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-
-    /* For landscape layouts only */
+@media (min-width: 1201px) {
     html {
-        font-size: 45%;
+        font-size: 67%;
     }
 
-    $menu-width: 24vw;
-    $main-width: 100vw - $menu-width - 2vw;
+    $menu-width: 18vw;
+    $main-width: 100vw - $menu-width - 1.0vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    html {
+        font-size: 55%;
+    }
+
+    $menu-width: 20vw;
+    $main-width: 100vw - $menu-width - 1.0vw;
 
     .wrapper {
         grid-template-columns: $menu-width $main-width;

@@ -195,67 +195,51 @@ body {
   background-color: rgb(244, 227, 190);
 }
 
-@media only screen and (min-width: 2000px) {
-  /* for sumo sized (mac) screens */
+@media (max-width: 480px) {
   html {
-    font-size: 80%;
+    font-size: 44%;
   }
   .wrapper {
-    grid-template-columns: 13vw 86vw;
+    grid-template-columns: 30vw 66.9vw;
   }
 }
-@media only screen and (min-width: 1440px) {
-  /* styles for browsers larger than 1440px; */
-  html {
-    font-size: 70%;
-  }
-  .wrapper {
-    grid-template-columns: 15vw 84vw;
-  }
-}
-@media only screen and (min-width: 960px) {
-  /* styles for browsers larger than 960px; */
-  html {
-    font-size: 60%;
-  }
-  .wrapper {
-    grid-template-columns: 18vw 80.9vw;
-  }
-}
-@media only screen and (device-width: 768px) {
-  /* default iPad screens */
+@media (min-width: 481px) and (max-width: 768px) {
   html {
     font-size: 50%;
   }
   .wrapper {
-    grid-template-columns: 24vw 74.2vw;
+    grid-template-columns: 31vw 66.5vw;
   }
 }
-@media only screen and (max-device-width: 480px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) */
+@media (min-width: 769px) and (max-width: 992px) {
   html {
-    font-size: 40%;
+    font-size: 52%;
   }
   .wrapper {
-    grid-template-columns: 36vw 60.6vw;
+    grid-template-columns: 24vw 74.1vw;
   }
 }
-/* different techniques for iPad screening */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* For portrait layouts only */
+@media (min-width: 993px) and (max-width: 1200px) {
   html {
-    font-size: 45%;
+    font-size: 58%;
   }
   .wrapper {
-    grid-template-columns: 24vw 72.6vw;
+    grid-template-columns: 20vw 78.7vw;
   }
 }
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* For landscape layouts only */
+@media (min-width: 1201px) {
   html {
-    font-size: 45%;
+    font-size: 67%;
   }
   .wrapper {
-    grid-template-columns: 24vw 74vw;
+    grid-template-columns: 18vw 81vw;
+  }
+}
+@media (max-width: 768px) and (orientation: landscape) {
+  html {
+    font-size: 55%;
+  }
+  .wrapper {
+    grid-template-columns: 20vw 79vw;
   }
 }
