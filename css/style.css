@@ -97,7 +97,7 @@ body {
 .wrapper {
   display: grid;
   grid-template-areas: "nav main";
-  grid-template-columns: 20vw 78.7vw;
+  grid-template-columns: 18vw 80.8vw;
 }
 
 #pageNav {
@@ -117,7 +117,7 @@ body {
 .nav__div {
   display: block;
   font-size: 1.5rem;
-  line-height: 2.8rem;
+  line-height: 3.6rem;
   padding: 0.7rem 1.8rem;
   box-shadow: 0.4vw 0.5vw 1vw rgb(47, 134, 118);
   margin: 1.5vh 1vw 2.6vh 1vw;
@@ -126,37 +126,38 @@ body {
   border-color: rgb(6, 61, 63);
   background-color: rgb(22, 169, 174);
 }
+.nav__div .more-collumn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
 .nav__div .nav-filter {
   cursor: pointer;
   transform: scale(1.1);
   opacity: 0.6;
 }
-.nav__div p label {
-  margin: 0 0.25vw 0 0.25vw;
-}
-.nav__div .radio img:hover,
-.nav__div p label img:hover,
-.nav__div p img:hover {
-  transform: scale(1.3);
-}
 .nav__div #input-name,
 .nav__div #check-totalFriend,
 .nav__div #check-minAge,
 .nav__div #check-maxAge {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  border-radius: 0.25vw;
+  border-radius: 0.3vw;
   padding-left: 0.3rem;
 }
 .nav__div #check-totalFriend,
 .nav__div #check-minAge,
 .nav__div #check-maxAge {
-  width: 45%;
+  width: 50%;
+}
+.nav__div label img {
+  margin: 0 0.8rem 0 0.8rem;
 }
 .nav__div .nav-caption {
-  color: rgb(6, 61, 63);
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .main {
@@ -194,28 +195,67 @@ body {
   background-color: rgb(244, 227, 190);
 }
 
-@media (max-width: 576px) {
+@media only screen and (min-width: 2000px) {
+  /* for sumo sized (mac) screens */
+  html {
+    font-size: 80%;
+  }
+  .wrapper {
+    grid-template-columns: 13vw 86vw;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+  html {
+    font-size: 70%;
+  }
+  .wrapper {
+    grid-template-columns: 15vw 84vw;
+  }
+}
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+  html {
+    font-size: 60%;
+  }
+  .wrapper {
+    grid-template-columns: 18vw 80.9vw;
+  }
+}
+@media only screen and (device-width: 768px) {
+  /* default iPad screens */
+  html {
+    font-size: 50%;
+  }
+  .wrapper {
+    grid-template-columns: 24vw 74.2vw;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) */
   html {
     font-size: 40%;
   }
+  .wrapper {
+    grid-template-columns: 36vw 60.6vw;
+  }
 }
-@media (min-width: 576px) and (max-width: 768px) {
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* For portrait layouts only */
   html {
     font-size: 45%;
   }
-}
-@media (min-width: 768px) and (max-width: 992px) {
-  html {
-    font-size: 54%;
+  .wrapper {
+    grid-template-columns: 24vw 72.6vw;
   }
 }
-@media (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* For landscape layouts only */
   html {
-    font-size: 64%;
+    font-size: 45%;
   }
-}
-@media (min-width: 1200px) {
-  html {
-    font-size: 70%;
+  .wrapper {
+    grid-template-columns: 24vw 74vw;
   }
 }

@@ -1,8 +1,8 @@
 @import "null_style.scss";
 
 $main-height: 100vh;
-$menu-width: 20vw;
-$main-width: 100vw - $menu-width - 1.3vw;
+$menu-width: 18vw;
+$main-width: 100vw - $menu-width - 1.2vw;
 
 $color-dark: rgb(6, 61, 63);
 $color-light: rgb(68, 202, 206);
@@ -41,7 +41,7 @@ body {
 .nav__div {
     display: block;
     font-size: 1.5rem;
-    line-height: 2.8rem;
+    line-height: 3.6rem;
     padding: 0.7rem 1.8rem;
     box-shadow: .4vw .5vw 1vw rgb(47, 134, 118);
     margin: 1.5vh 1vw 2.6vh 1vw;
@@ -50,42 +50,43 @@ body {
     border-color: $color-dark;
     background-color: rgb(22, 169, 174);
 
+    .more-collumn {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
     .nav-filter {
         cursor: pointer;
         transform: scale(1.1);
         opacity: 0.6;
     }
 
-    p label {
-        margin: 0 .25vw 0 .25vw;
-    }
-
-    .radio img:hover,
-    p label img:hover,
-    p img:hover {
-        transform: scale(1.3);
-    }
-
     #input-name,
     #check-totalFriend,
     #check-minAge,
     #check-maxAge {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 600;
-        border-radius: .25vw;
+        border-radius: .3vw;
         padding-left: .3rem;
     }
 
     #check-totalFriend,
     #check-minAge,
     #check-maxAge {
-        width: 45%;
+        width: 50%;
+    }
+
+    label img {
+        margin: 0 0.8rem 0 0.8rem;
     }
 
     .nav-caption {
-        color: $color-dark;
-        font-size: 1.7rem;
+        font-size: 2rem;
         font-weight: 600;
+        text-transform: uppercase;
     }
 }
 
@@ -129,32 +130,108 @@ body {
     }
 }
 
-@media (max-width: 576px) {
+@media only screen and (min-width: 2000px) {
+
+    /* for sumo sized (mac) screens */
+    html {
+        font-size: 80%;
+    }
+
+    $menu-width: 13vw;
+    $main-width: 100vw - $menu-width - 1vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+
+    /* styles for browsers larger than 1440px; */
+    html {
+        font-size: 70%;
+    }
+
+    $menu-width: 15vw;
+    $main-width: 100vw - $menu-width - 1vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+
+    /* styles for browsers larger than 960px; */
+    html {
+        font-size: 60%;
+    }
+
+    $menu-width: 18vw;
+    $main-width: 100vw - $menu-width - 1.1vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
+    }
+}
+
+@media only screen and (device-width: 768px) {
+
+    /* default iPad screens */
+    html {
+        font-size: 50%;
+    }
+
+    $menu-width: 24vw;
+    $main-width: 100vw - $menu-width - 1.8vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+
+    /* styles for mobile browsers smaller than 480px; (iPhone) */
     html {
         font-size: 40%;
     }
+
+    $menu-width: 36vw;
+    $main-width: 100vw - $menu-width - 3.4vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
+    }
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+
+    /* For portrait layouts only */
     html {
         font-size: 45%;
     }
-}
 
-@media (min-width: 768px) and (max-width: 992px) {
-    html {
-        font-size: 54%;
+    $menu-width: 24vw;
+    $main-width: 100vw - $menu-width - 3.4vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
-    html {
-        font-size: 64%;
-    }
-}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
 
-@media (min-width: 1200px) {
+    /* For landscape layouts only */
     html {
-        font-size: 70%;
+        font-size: 45%;
+    }
+
+    $menu-width: 24vw;
+    $main-width: 100vw - $menu-width - 2vw;
+
+    .wrapper {
+        grid-template-columns: $menu-width $main-width;
     }
 }
