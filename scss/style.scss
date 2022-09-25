@@ -41,7 +41,7 @@ body {
 .nav__div {    
     display: block;
     font-size: 1.5rem;
-    line-height: 3.6rem;
+    line-height: 3.4rem;
     padding: 0.7rem 1.8rem;
     box-shadow: .4vw .5vw 1vw rgb(47, 134, 118);
     margin: 1.5vh 1vw 2.6vh 1vw;
@@ -83,8 +83,8 @@ body {
         margin: 0 0.8rem 0 0.8rem;
     }
 
-    .nav-caption {
-        font-size: 2rem;
+    .nav-caption {        
+        font-size: 1.8rem;
         font-weight: 600;
         text-transform: uppercase;
     }
@@ -207,4 +207,3 @@ body {
         grid-template-columns: $menu-width $main-width;
     }
 }
-
