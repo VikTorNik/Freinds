@@ -2,7 +2,7 @@
 
 $main-height: 100vh;
 $menu-width: 18vw;
-$main-width: 100vw - $menu-width - 1.2vw;
+$main-width: 100vw - $menu-width;
 
 $color-dark: rgb(6, 61, 63);
 $color-light: rgb(68, 202, 206);
@@ -22,13 +22,7 @@ body {
     grid-template-areas:
         "nav main";
     grid-template-columns: $menu-width $main-width;
-    //grid-template-rows: 500px;
-    //document.body.scrollHeight;
-
-    // grid-template-rows: none;
-    // grid-auto-rows: min-content;
-    //    grid-auto-rows: max-content;
-    //    grid-auto-rows: auto;
+    grid-template-rows: minmax(100vh, max-content);
 }
 
 #pageNav {
@@ -102,8 +96,7 @@ body {
 .main__div {
     display: grid;
     grid-template-columns: repeat(var(--columns-card), 1fr);
-    grid-template-rows: repeat(var(--rows-card), 1fr);
-    padding: 10px;
+    grid-template-rows: repeat(auto-fit, 1fr);    
 
     .div__card {
         display: flex;
@@ -203,7 +196,7 @@ body {
     }
 
     $menu-width: 19vw;
-    $main-width: 100vw - $menu-width - 1.0vw;
+    $main-width: 100vw - $menu-width;
 
     .wrapper {
         grid-template-columns: $menu-width $main-width;

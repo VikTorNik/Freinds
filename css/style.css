@@ -97,7 +97,9 @@ body {
 .wrapper {
   display: grid;
   grid-template-areas: "nav main";
-  grid-template-columns: 18vw 80.8vw;
+  grid-template-columns: 18vw 82vw;
+  grid-template-rows: minmax(100vh, -webkit-max-content);
+  grid-template-rows: minmax(100vh, max-content);
 }
 
 #pageNav {
@@ -165,8 +167,7 @@ body {
 .main__div {
   display: grid;
   grid-template-columns: repeat(var(--columns-card), 1fr);
-  grid-template-rows: repeat(var(--rows-card), 1fr);
-  padding: 10px;
+  grid-template-rows: repeat(auto-fit, 1fr);
 }
 .main__div .div__card {
   display: flex;
@@ -238,7 +239,7 @@ body {
     font-size: 67%;
   }
   .wrapper {
-    grid-template-columns: 19vw 80vw;
+    grid-template-columns: 19vw 81vw;
   }
 }
 @media (max-width: 768px) and (orientation: landscape) {
