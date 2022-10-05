@@ -229,15 +229,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //* Формуємо сітку у CSS під зображення
     function createMarkupCSS() {
         initFriends.gridFriends.columns = Math.floor(document.querySelector(".main").offsetWidth / initFriends.profileCard.width) - 2;
-        initFriends.gridFriends.columns < 1 ? initFriends.gridFriends.columns = 1 : false;
-        // initFriends.gridFriends.rows = Math.floor(document.querySelector(".main").clientHeight / initFriends.profileCard.height);
-        // if (initFriends.gridFriends.rows < 1) { initFriends.gridFriends.rows = 1 };
-        // вираховуємо кількість рядків/колонок                
+        initFriends.gridFriends.columns < 1 ? initFriends.gridFriends.columns = 1 : false;        
         document.documentElement.style.setProperty('--columns-card', initFriends.gridFriends.columns);
-        // document.documentElement.style.setProperty('--rows-card', initFriends.gridFriends.rows);
-        console.log(document.querySelector(".main").clientHeight);
-        // console.log(document.querySelector(".main").clientWidth, " - ", document.querySelector(".nav").clientWidth);
-
     }
 
     //* Формування DOM
